@@ -13,7 +13,23 @@
 }
 
 
+.heroImage{
+position: absolute;
+top: 0px;
+z-index: 1;
+}
 
+@media (min-width: 768px) {
+  .heroImage {
+    right: 20%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroImage {
+    right: 20%;
+  }
+}
 
 .title a {
   color: #0070f3;
