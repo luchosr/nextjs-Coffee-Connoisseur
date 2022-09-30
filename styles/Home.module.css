@@ -22,8 +22,8 @@
 .cardLayout {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  column-gap: 1.5rem /* 24px */;
-  row-gap: 1.5rem /* 24px */;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
 }
 
 .card {
@@ -52,8 +52,8 @@
 
 @media (min-width: 640px) {
   .container {
-    padding-left: 1rem /* 16px */;
-    padding-right: 1rem /* 16px */;
+    padding-left: 1rem;
+    padding-right: 1rem ;
   }
 
   .main {
