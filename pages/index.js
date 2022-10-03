@@ -4,11 +4,12 @@ import Banner from '../components/banner';
 import Card from '../components/card';
 import styles from '../styles/Home.module.css';
 
-import coffeeStores from '../components/data/coffee-stores.json';
+import coffeeStoresData from '../components/data/coffee-stores.json';
 
 export async function getStaticProps(context) {
+  console.log('hi getStaticProps');
   return {
-    props: { coffeeStores },
+    props: { coffeeStores: coffeeStoresData },
   };
 }
 
@@ -28,25 +29,24 @@ export default function Home(props) {
           buttonText='View stores nearby'
           handleOnClick={handleOnBannerBtnClick}
         />
-        <div className={styles.cardLayout}>
-          {coffeeStores.map((coffeeStore) => {
-            return (
-              <Card
-                key={coffeeStore.id}
-                name={coffeeStore.name}
-                imgUrl={coffeeStore.imgUrl}
-                href={`/coffeeStore/${coffeeStore.id}`}
-                className={styles.card}
-              />
-            );
-          })}
-          {/* <Card
-            name='DarkHorse Coffee'
-            imgUrl='/static/hero-image.png'
-            href='/coffee-store/darkhose-coffee'
-            className={styles.card}
-          /> */}
-        </div>
+        {props.coffeeStores.length > 0 && (
+          <>
+            <h2 className={styles.heading2}>Toronto stores</h2>
+            <div className={styles.cardLayout}>
+              {coffeeStoresData.map((coffeeStore) => {
+                return (
+                  <Card
+                    key={coffeeStore.id}
+                    name={coffeeStore.name}
+                    imgUrl={coffeeStore.imgUrl}
+                    href={`/coffeeStore/${coffeeStore.id}`}
+                    className={styles.card}
+                  />
+                );
+              })}
+            </div>
+          </>
+        )}
         <div className={styles.heroImage}>
           <Image
             src='/static/hero-image.png'
